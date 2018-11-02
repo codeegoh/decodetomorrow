@@ -8,6 +8,7 @@ namespace LocationManagerEnums
 
     public enum DemoLocation
     {
+        OfficeGMA,
         NewYork,
         Rome,
         NewYork2,
@@ -56,6 +57,8 @@ namespace LocationManagerEnums
 
             switch (demoLocation)
             {
+                case DemoLocation.OfficeGMA:
+                    return new Coordinates(14.6337, 121.0413113, 0);
                 case DemoLocation.NewYork:
                    return new Coordinates(40.783435, -73.966249, 0);
                 case DemoLocation.NewYork2:
