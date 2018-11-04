@@ -1,0 +1,80 @@
+{
+    "results": [
+        {
+            "image_url": "ElNido",
+            "destinationName": "El Nido, Palawan"
+        },
+        {
+            "image_url": "Boracay",
+            "destinationName": "Boracay Island, Aklan"
+        },
+        {
+            "image_url": "Batanes",
+            "destinationName": "Batanes Island, Batanes"
+        },
+        {
+            "image_url": "Camiguin",
+            "destinationName": "Camiguin Island, Camiguin"
+        },
+        {
+            "image_url": "Malapascua",
+            "destinationName": "Malapascua Island, Cebu"
+        },
+        {
+            "image_url": "kalanggaman",
+            "destinationName": "Kalanggaman Island, Leyte"
+        },
+        {
+            "image_url": "Siargao",
+            "destinationName": "Siargao Island, Surigao del Norte"
+        },
+        {
+            "image_url": "Coron",
+            "destinationName": "Coron, Palawan"
+        },
+        {
+            "image_url": "Hinatuan",
+            "destinationName": "Hinatuan Enchanted River, Surigao del Sur"
+        },
+        {
+            "image_url": "Mayon",
+            "destinationName": "Mayon Volcano, Albay"
+        },
+        {
+            "image_url": "Taal",
+            "destinationName": "Taal Volcano, Tagaytay"
+        },
+        {
+            "image_url": "PuertoPrincesa",
+            "destinationName": "Puerto Princesa, Palawan"
+        },
+        {
+            "image_url": "Langun",
+            "destinationName": "Langun Gobingob Caves, Samar"
+        },
+        {
+            "image_url": "Banaue",
+            "destinationName": "Banaue Rice Terraces, Ifugao"
+        },
+        {
+            "image_url": "ChocolateHills",
+            "destinationName": "Chocolate Hills, Bohol"
+        },
+        {
+            "image_url": "MountApo",
+            "destinationName": "Mount Apo, Mindanao"
+        },
+        {
+            "image_url": "Tubbataha",
+            "destinationName": "Tubbataha Reefs, Palawan"
+        },
+        {
+            "image_url": "Vigan",
+            "destinationName": "Vigan, Ilocos Sur"
+        },
+        {
+            "image_url": "Intramuros",
+            "destinationName": "Intramuros, Manila"
+        }
+    ]
+}
