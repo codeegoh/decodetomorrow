@@ -18,9 +18,9 @@ namespace Digify
             public double RainProbability {get; set;}
 
 		public Forecast(DateTime timestamp, double temperature, double windSpeed, 
-            double solarRadiation, double meanSeaLevelTemperature, double rain, 
-            double dewpoint, double windGust, double windDirection, double heatIndex, 
-            double totalCloudCover, double rainProbability)
+                  double solarRadiation, double meanSeaLevelTemperature, double rain, 
+                  double dewpoint, double windGust, double windDirection, double heatIndex, 
+                  double totalCloudCover, double rainProbability)
 		{
                   this.Timestamp = timestamp;
                   this.Temperature = temperature;

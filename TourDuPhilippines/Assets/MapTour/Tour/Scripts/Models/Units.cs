@@ -21,8 +21,8 @@ namespace Digify
         private Units() {}
 
 		public static void Set(string time, string temperature, string windSpeed, string solarRadiation,
-                string meanSeaLevelPressure, string rain, string dewpoint, string windGust,
-                string windDirection, string heatIndex, string totalCloudCover, string rainProbability)
+            string meanSeaLevelPressure, string rain, string dewpoint, string windGust,
+            string windDirection, string heatIndex, string totalCloudCover, string rainProbability)
 		{
 			Instance.time = time;
             Instance.temperature = temperature;
