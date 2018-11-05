@@ -80,7 +80,8 @@
 
 	    private void Update()
 	    {
-            if( this.totalItemCount != this._prevTotalItemCount ) {
+            refresh();
+            if ( this.totalItemCount != this._prevTotalItemCount ) {
 
                 this._prevTotalItemCount = this.totalItemCount;
 
@@ -97,7 +98,7 @@
                     this.contentAnchoredPosition = this.viewportSize - this.contentSize;
                 }
 
-                refresh();
+
             }
 
 
