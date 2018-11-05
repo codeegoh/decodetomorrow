@@ -21,6 +21,30 @@ namespace Digify
             forecasts.Location = location;
             forecasts.Add(forecast);
             Console.WriteLine(forecasts.Size().ToString());
+
+            string weatherInterpretation = WeatherInterpretationFactory.Interpret(forecast, WeatherType.HEAT_INDEX);
+            Console.WriteLine(forecast.HeatIndex + " = " + weatherInterpretation);
+
+            weatherInterpretation = WeatherInterpretationFactory.Interpret(forecast, WeatherType.RAIN);
+            Console.WriteLine(forecast.Rain + " = " + weatherInterpretation);
+
+            weatherInterpretation = WeatherInterpretationFactory.Interpret(forecast, WeatherType.RAIN_PROBABILITY);
+            Console.WriteLine(forecast.RainProbability + " = " + weatherInterpretation);
+
+            weatherInterpretation = WeatherInterpretationFactory.Interpret(forecast, WeatherType.TEMPERATURE);
+            Console.WriteLine(forecast.Temperature + " = " + weatherInterpretation);
+
+            weatherInterpretation = WeatherInterpretationFactory.Interpret(forecast, WeatherType.TOTAL_CLOUD_COVER);
+            Console.WriteLine(forecast.TotalCloudCover + " = " + weatherInterpretation);
+
+            weatherInterpretation = WeatherInterpretationFactory.Interpret(forecast, WeatherType.WIND_DIRECTION);
+            Console.WriteLine(forecast.WindDirection + " = " + weatherInterpretation);
+
+            weatherInterpretation = WeatherInterpretationFactory.Interpret(forecast, WeatherType.WIND_GUST);
+            Console.WriteLine(forecast.WindGust + " = " + weatherInterpretation);
+
+            weatherInterpretation = WeatherInterpretationFactory.Interpret(forecast, WeatherType.WIND_SPEED);
+            Console.WriteLine(forecast.WindSpeed + " = " + weatherInterpretation);
 		}
     }
 }
