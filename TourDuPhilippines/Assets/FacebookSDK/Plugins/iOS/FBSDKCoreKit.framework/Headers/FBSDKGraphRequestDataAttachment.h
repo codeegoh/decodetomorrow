@@ -18,16 +18,13 @@
 
 #import <Foundation/Foundation.h>
 
-/**
-  A container class for data attachments so that additional metadata can be provided about the attachment.
+/*!
+ @abstract A container class for data attachments so that additional metadata can be provided about the attachment.
  */
 @interface FBSDKGraphRequestDataAttachment : NSObject
 
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
-/**
-  Initializes the receiver with the attachment data and metadata.
+/*!
+ @abstract Initializes the receiver with the attachment data and metadata.
  @param data The attachment data (retained, not copied)
  @param filename The filename for the attachment
  @param contentType The content type for the attachment
@@ -37,18 +34,18 @@
                  contentType:(NSString *)contentType
 NS_DESIGNATED_INITIALIZER;
 
-/**
-  The content type for the attachment.
+/*!
+ @abstract The content type for the attachment.
  */
 @property (nonatomic, copy, readonly) NSString *contentType;
 
-/**
-  The attachment data.
+/*!
+ @abstract The attachment data.
  */
 @property (nonatomic, strong, readonly) NSData *data;
 
-/**
-  The filename for the attachment.
+/*!
+ @abstract The filename for the attachment.
  */
 @property (nonatomic, copy, readonly) NSString *filename;
 

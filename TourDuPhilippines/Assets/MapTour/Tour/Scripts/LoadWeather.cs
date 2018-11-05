@@ -15,18 +15,16 @@ namespace DigiMap
 
         Coordinates lastQueryCanter = null;
 
-        void Awake(){
-            goMap.OnTileLoad.AddListener((GOTile) =>
-            {
-                OnLoadTile(GOTile);
-            });
+        void Awake()
+        {
+            goMap.OnTileLoad.AddListener((GOTile) =>{ OnLoadTile(GOTile);});
         }
 
         void OnLoadTile (GOTile tile)
         {
             //Center of the map tile
             Coordinates tileCenter = tile.goTile.tileCenter;
-            string url = baseUrl +tile.goTile.tileCenter.latitude+","+tile.goTile.tileCenter.longitude+"/";
+            string url = baseUrl +tile.goTile.tileCenter.latitude+","+tile.goTile.tileCenter.longitude+"/?";
             StartCoroutine(LoadPlaces(url));
         }
 

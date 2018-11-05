@@ -22,26 +22,25 @@
 #import <FBSDKShareKit/FBSDKShareVideo.h>
 #import <FBSDKShareKit/FBSDKSharingContent.h>
 
-/**
-  A model for video content to be shared.
+/*!
+ @abstract A model for video content to be shared.
  */
 @interface FBSDKShareVideoContent : NSObject <FBSDKSharingContent>
 
-/**
-  The photo that represents the video.
+/*!
+ @abstract The photo that represents the video.
  @return The photo
  */
-@property (nonatomic, copy) FBSDKSharePhoto *previewPhoto
-DEPRECATED_MSG_ATTRIBUTE("Use `video.previewPhoto`");
+@property (nonatomic, copy) FBSDKSharePhoto *previewPhoto;
 
-/**
-  The video to be shared.
+/*!
+ @abstract The video to be shared.
  @return The video
  */
 @property (nonatomic, copy) FBSDKShareVideo *video;
 
-/**
-  Compares the receiver to another video content.
+/*!
+ @abstract Compares the receiver to another video content.
  @param content The other content
  @return YES if the receiver's values are equal to the other content's values; otherwise NO
  */

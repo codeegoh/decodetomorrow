@@ -18,62 +18,38 @@
 
 #import <Foundation/Foundation.h>
 
-/**
-  Class to contain common utility methods.
+/*!
+ @abstract Class to contain common utility methods.
  */
 @interface FBSDKUtility : NSObject
 
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
-/**
-  Parses a query string into a dictionary.
+/*!
+ @abstract Parses a query string into a dictionary.
  @param queryString The query string value.
  @return A dictionary with the key/value pairs.
  */
 + (NSDictionary *)dictionaryWithQueryString:(NSString *)queryString;
 
-/**
-  Constructs a query string from a dictionary.
+/*!
+ @abstract Constructs a query string from a dictionary.
  @param dictionary The dictionary with key/value pairs for the query string.
  @param errorRef If an error occurs, upon return contains an NSError object that describes the problem.
- @return Query string representation of the parameters.
+ @result Query string representation of the parameters.
  */
 + (NSString *)queryStringWithDictionary:(NSDictionary *)dictionary error:(NSError *__autoreleasing *)errorRef;
 
-/**
-  Decodes a value from an URL.
+/*!
+ @abstract Decodes a value from an URL.
  @param value The value to decode.
- @return The decoded value.
+ @result The decoded value.
  */
 + (NSString *)URLDecode:(NSString *)value;
 
-/**
-  Encodes a value for an URL.
+/*!
+ @abstract Encodes a value for an URL.
  @param value The value to encode.
- @return The encoded value.
+ @result The encoded value.
  */
 + (NSString *)URLEncode:(NSString *)value;
-
-/**
-  Creates a timer using Grand Central Dispatch.
- @param interval The interval to fire the timer, in seconds.
- @param block The code block to execute when timer is fired.
- @return The dispatch handle.
- */
-+ (dispatch_source_t)startGCDTimerWithInterval:(double)interval block:(dispatch_block_t)block;
-
-/**
- Stop a timer that was started by startGCDTimerWithInterval.
- @param timer The dispatch handle received from startGCDTimerWithInterval.
- */
-+ (void)stopGCDTimer:(dispatch_source_t)timer;
-
-/**
- Get SHA256 hased string of NSString/NSData
-
- @param input The data that needs to be hashed, it could be NSString or NSData.
- */
-+ (NSString *)SHA256Hash:(NSObject *)input;
 
 @end

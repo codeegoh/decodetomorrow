@@ -53,17 +53,11 @@ namespace Facebook.Unity
             var perms = new List<string>() { "public_profile", "email" };
             FB.LogInWithReadPermissions(perms, ShowMainContent);
 
-            //FB.LogInWithReadPermissions(new List<string>() { "public_profile", "email"/*, "user_friends"*/ }, ShowMainContent);
-
         }
 
         private void CallFBLoginForPublish()
         {
-            // It is generally good behavior to split asking for read and publish
-            // permissions rather than ask for them all at once.
-            //
-            // In your own game, consider postponing this call until the moment
-            // you actually need it.
+
             FB.LogInWithPublishPermissions(new List<string>() { "publish_actions" }, ShowMainContent);
         }
 
@@ -77,11 +71,11 @@ namespace Facebook.Unity
         {
             if (FB.IsLoggedIn)
             {
-                // AccessToken class will have session details
+
                 var aToken = Facebook.Unity.AccessToken.CurrentAccessToken;
-                // Print current access token's User ID
+
                 Debug.Log(aToken.UserId);
-                // Print current access token's granted permissions
+
                 foreach (string perm in aToken.Permissions)
                 {
                     Debug.Log(perm);
@@ -118,10 +112,9 @@ namespace Facebook.Unity
         {
             if (FB.IsInitialized)
             {
-                // Signal an app activation App Event
+
                 FB.ActivateApp();
-                // Continue with Facebook SDK
-                // ...
+
             }
             else
             {

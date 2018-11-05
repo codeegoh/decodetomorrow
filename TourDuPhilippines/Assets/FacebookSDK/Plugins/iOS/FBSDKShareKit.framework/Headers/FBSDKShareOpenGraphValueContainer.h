@@ -21,132 +21,130 @@
 @class FBSDKShareOpenGraphObject;
 @class FBSDKSharePhoto;
 
-/**
-  Protocol defining operations on open graph actions and objects.
-
- The property keys MUST have namespaces specified on them, such as `og:image`.
+/*!
+ @abstract Protocol defining operations on open graph actions and objects.
+ @discussion The property keys MUST have namespaces specified on them, such as `og:image`.
  */
 @protocol FBSDKShareOpenGraphValueContaining <NSObject, NSSecureCoding>
 
-/**
-  Gets an NSArray out of the receiver.
+/*!
+ @abstract Gets an NSArray out of the receiver.
  @param key The key for the value
  @return The NSArray value or nil
  */
 - (NSArray *)arrayForKey:(NSString *)key;
 
-/**
-  Applies a given block object to the entries of the receiver.
+/*!
+ @abstract Applies a given block object to the entries of the receiver.
  @param block A block object to operate on entries in the receiver
  */
 - (void)enumerateKeysAndObjectsUsingBlock:(void (^)(NSString *key, id object, BOOL *stop))block;
 
-/**
-  Returns an enumerator object that lets you access each key in the receiver.
+/*!
+ @abstract Returns an enumerator object that lets you access each key in the receiver.
  @return An enumerator object that lets you access each key in the receiver
  */
 - (NSEnumerator *)keyEnumerator;
 
-/**
-  Gets an NSNumber out of the receiver.
+/*!
+ @abstract Gets an NSNumber out of the receiver.
  @param key The key for the value
  @return The NSNumber value or nil
  */
 - (NSNumber *)numberForKey:(NSString *)key;
 
-/**
-  Returns an enumerator object that lets you access each value in the receiver.
+/*!
+ @abstract Returns an enumerator object that lets you access each value in the receiver.
  @return An enumerator object that lets you access each value in the receiver
  */
 - (NSEnumerator *)objectEnumerator;
 
-/**
-  Gets an FBSDKShareOpenGraphObject out of the receiver.
+/*!
+ @abstract Gets an FBSDKShareOpenGraphObject out of the receiver.
  @param key The key for the value
  @return The FBSDKShareOpenGraphObject value or nil
  */
 - (FBSDKShareOpenGraphObject *)objectForKey:(NSString *)key;
 
-/**
-  Enables subscript access to the values in the receiver.
+/*!
+ @abstract Enables subscript access to the values in the receiver.
  @param key The key for the value
  @return The value
  */
 - (id)objectForKeyedSubscript:(NSString *)key;
 
-/**
-  Parses properties out of a dictionary into the receiver.
+/*!
+ @abstract Parses properties out of a dictionary into the receiver.
  @param properties The properties to parse.
  */
 - (void)parseProperties:(NSDictionary *)properties;
 
-/**
-  Gets an FBSDKSharePhoto out of the receiver.
+/*!
+ @abstract Gets an FBSDKSharePhoto out of the receiver.
  @param key The key for the value
  @return The FBSDKSharePhoto value or nil
  */
 - (FBSDKSharePhoto *)photoForKey:(NSString *)key;
 
-/**
-  Removes a value from the receiver for the specified key.
+/*!
+ @abstract Removes a value from the receiver for the specified key.
  @param key The key for the value
  */
 - (void)removeObjectForKey:(NSString *)key;
 
-/**
-  Sets an NSArray on the receiver.
-
- This method will throw if the array contains any values that is not an NSNumber, NSString, NSURL,
+/*!
+ @abstract Sets an NSArray on the receiver.
+ @discussion This method will throw if the array contains any values that is not an NSNumber, NSString, NSURL,
  FBSDKSharePhoto or FBSDKShareOpenGraphObject.
  @param array The NSArray value
  @param key The key for the value
  */
 - (void)setArray:(NSArray *)array forKey:(NSString *)key;
 
-/**
-  Sets an NSNumber on the receiver.
+/*!
+ @abstract Sets an NSNumber on the receiver.
  @param number The NSNumber value
  @param key The key for the value
  */
 - (void)setNumber:(NSNumber *)number forKey:(NSString *)key;
 
-/**
-  Sets an FBSDKShareOpenGraphObject on the receiver.
+/*!
+ @abstract Sets an FBSDKShareOpenGraphObject on the receiver.
  @param object The FBSDKShareOpenGraphObject value
  @param key The key for the value
  */
 - (void)setObject:(FBSDKShareOpenGraphObject *)object forKey:(NSString *)key;
 
-/**
-  Sets an FBSDKSharePhoto on the receiver.
+/*!
+ @abstract Sets an FBSDKSharePhoto on the receiver.
  @param photo The FBSDKSharePhoto value
  @param key The key for the value
  */
 - (void)setPhoto:(FBSDKSharePhoto *)photo forKey:(NSString *)key;
 
-/**
-  Sets an NSString on the receiver.
+/*!
+ @abstract Sets an NSString on the receiver.
  @param string The NSString value
  @param key The key for the value
  */
 - (void)setString:(NSString *)string forKey:(NSString *)key;
 
-/**
-  Sets an NSURL on the receiver.
+/*!
+ @abstract Sets an NSURL on the receiver.
  @param URL The NSURL value
  @param key The key for the value
  */
 - (void)setURL:(NSURL *)URL forKey:(NSString *)key;
 
-/**
-  Gets an NSString out of the receiver.
+/*!
+ @abstract Gets an NSString out of the receiver.
  @param key The key for the value
  @return The NSString value or nil
  */
 - (NSString *)stringForKey:(NSString *)key;
 
-/**
-  Gets an NSURL out of the receiver.
+/*!
+ @abstract Gets an NSURL out of the receiver.
  @param key The key for the value
  @return The NSURL value or nil
  */
@@ -154,8 +152,8 @@
 
 @end
 
-/**
-  A base class to container Open Graph values.
+/*!
+ @abstract A base class to container Open Graph values.
  */
 @interface FBSDKShareOpenGraphValueContainer : NSObject <FBSDKShareOpenGraphValueContaining>
 
