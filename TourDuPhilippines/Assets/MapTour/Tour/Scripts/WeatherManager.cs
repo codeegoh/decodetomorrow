@@ -3,29 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using Digify;
 using System;
+using Digi.RainMaker;
 
 public class WeatherManager : MonoBehaviour
 {
 
     public string baseUrl = "https://api-dev.weathersolutions.ph/api/v1/forecast/";
     public string oauth_token = "Token cc84d57f4084333434f1068cde634ea6b7d20fa4";
-    private ForecastDataStore forecastData;
+    private ForecastDataStore forecastDataStore;
+    private Dictionary<string, List<Forecast>> forecastData;
     [HideInInspector]
     public float userLatitude, userLongitude;
-
+    private bool isWeatherAvailable = false;
+    public RainScript RainScript;
+    public GameObject Sun;
+    private int startSunAngle = -80;
+    private float multiplier = 15.8F;
     void Start()
     {
 #if UNITY_EDITOR
         userLatitude = 14.6337F;
         userLongitude = 121.0413113F;
         string url = baseUrl+userLatitude+","+userLongitude+"/?";
-        StartCoroutine(LoadForecast(url));
+
+        string key = "location_name";
+        StartCoroutine(LoadForecast(url, key));
         Debug.Log("My Location is at GMA");
 #elif UNITY_IOS || UNITY_ANDROID
         StartCoroutine(AccessUserLocation());
 #endif
 
-        forecastData = (ForecastDataStore) new DataStoreFactory().Create(StoreType.FORECAST);
+        forecastData = new Dictionary<string, List<Forecast>>();
+
+        //TODO: Gaile update hour
+        int sysHour = System.DateTime.Now.Hour;
+        float sunAngle = startSunAngle - (13 * multiplier);
+        Sun.transform.rotation = Quaternion.Euler(sunAngle, 0.0f, 0.0f);
+       // if (sysHour > 19)
+       //     Sun.transform.rotation = Quaternion.Euler(-90, 0.0f, 0.0f);
+       // else
+            Sun.transform.rotation = Quaternion.Euler(sunAngle, 0.0f, 0.0f);
+
     }
 
     IEnumerator AccessUserLocation()
@@ -58,13 +76,14 @@ public class WeatherManager : MonoBehaviour
             userLatitude = Input.location.lastData.latitude;
             userLongitude = Input.location.lastData.longitude;
             string url = baseUrl + userLatitude + "," + userLongitude + "/?";
-            StartCoroutine(LoadForecast(url));
+            //Location location = new Location(userLatitude, userLongitude, 0);
+            StartCoroutine(LoadForecast(url, "location_name"));
             print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
         }
         Input.location.Stop();
     }
 
-    public IEnumerator LoadForecast(string url)
+    public IEnumerator LoadForecast(string url, string locationKey)
     {
         Debug.Log("WEATHER API URL: " + url);
         Hashtable headers = new Hashtable();
@@ -81,6 +100,8 @@ public class WeatherManager : MonoBehaviour
 
         IDictionary response = (IDictionary)((IDictionary)job.OutData);
         IList results = (IList)response["results"];
+
+        forecastDataStore = (ForecastDataStore)new DataStoreFactory().Create(StoreType.FORECAST);
 
         foreach (IDictionary result in results)
         {//This example only takes GPS location and the name of the object. There's lot more, take a look at the Foursquare API documentation
@@ -107,8 +128,34 @@ public class WeatherManager : MonoBehaviour
                                                  rain, dewpoint, windGust, windDirection, heatIndex,
                                                  totalCloudCover, rainProbability);
 
-                forecastData.Add(forecast);
-               
+                forecastDataStore.Add(forecast);
+            }
+        }
+
+        forecastData.Add(locationKey, forecastDataStore.All());
+        isWeatherAvailable = true;
+    }
+
+    List<Forecast> GetForecast(string locationKey)
+    {
+        return forecastData[locationKey];
+    }
+
+    private void Update()
+    {
+        if (isWeatherAvailable)
+        {
+            Location location = new Location(userLatitude, userLongitude, 0);
+            List<Forecast> forecasts = GetForecast("location_name");
+            if (null != forecasts && forecasts.Count > 0)
+            {
+                foreach (Forecast forecast in forecasts)
+                {
+                    Debug.Log("@@@@@Rain Probability: "+forecast.RainProbability.ToString());
+                    Debug.Log("@@@@@Rain GAILE: " + forecast.Rain.ToString());
+                    RainScript.RainIntensity = (float)forecast.Rain/20;
+                }
+                isWeatherAvailable = false;
             }
         }
     }

@@ -80,9 +80,12 @@
 
 	    private void Update()
 	    {
-            refresh();
-            if ( this.totalItemCount != this._prevTotalItemCount ) {
 
+            if (PlayerPrefs.GetInt("IsDoneText") == 1)
+                refresh();
+
+            if ( this.totalItemCount != this._prevTotalItemCount ) {
+                refresh();
                 this._prevTotalItemCount = this.totalItemCount;
 
                 // check scroll bottom
@@ -152,8 +155,8 @@
 
         // refresh
 
-        private void refresh() {
-
+        public void refresh() {
+            PlayerPrefs.SetInt("IsDoneText", 0);
             var index = 0;
             if( this.contentAnchoredPosition != 0 ) {
                 index = (int)(-this.contentAnchoredPosition / this._itemSize);

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class AnimatePrefab : MonoBehaviour {
 
-	public float speed = 500;
+	public float speed = 50;
 	public bool continousRotation;
 	bool isAnimating;
 

@@ -17,6 +17,7 @@
 
         public Image icon;
 	    public Text  title;
+        public Text likeNum;
 	    //public Image background;
         public Button destinationBtn;
         private List <string> tempPic = new List<string> ();
@@ -25,6 +26,7 @@
 
         void Start()
         {
+            PlayerPrefs.SetInt("IsDoneText", 0);
             StartCoroutine(LoadPlaces());
         }
 
@@ -54,6 +56,7 @@
                 if(tempImg.Count == results.Count)
                 {
                     isDone = true;
+                    PlayerPrefs.SetInt("IsDoneText", 1);
                 }
 
 
@@ -68,6 +71,8 @@
             {
                 this.title.text = tempImg[index];
                 this.icon.sprite = Resources.Load<Sprite>(tempPic[index]);
+                int numRandom = Random.Range(4, 50);
+                likeNum.text = numRandom.ToString();
                 Button loadDestinationBtn = this.destinationBtn.GetComponent<Button>();
                 loadDestinationBtn.onClick.AddListener(LoadDestinationScene);
             }
