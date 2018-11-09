@@ -7,7 +7,9 @@
 **Short Description:** TravelPinas: A mobile application for gamified-immersive travel experience in the Philippines.
 
 **Long Description:**  
-With an all-time high of 6.6 million visiting tourists + comparable number of Filipino backpackers in the country, TravelPinas mobile app is your companion tool for you to travel with great experience. The Augmented Reality (AR) and Virtual Environments (VE) immersive experience powered by Aboitiz Weather Forecast API can make travel more convenient, seamless, and secure. 
+With an all-time high of 6.6 million visiting tourists + comparable number of Filipino backpackers in the country, TravelPinas mobile app is your companion tool for you to travel with great experience. 
+
+The Augmented Reality (AR) and Virtual Environments (VE) immersive experience powered by Aboitiz Weather Forecast API can make travel more convenient, seamless, and secure. 
 
 The customizable suggested itinerary easily records your adventure plan such as booking options to airport, seaport, road and railways transportations; hotels; restaurants; and fun things to do.
 
