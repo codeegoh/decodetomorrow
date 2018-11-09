@@ -1,4 +1,4 @@
-#TravelPinas
+## TravelPinas
 
 **Team Name:** Digify
 
