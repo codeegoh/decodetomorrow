@@ -1,0 +1,23 @@
+{
+    "results": [
+      {
+        "product_image_url": "Coke",
+        "description": "Redeem free Coke",
+        "sponsor_image_url": "7-11",
+        "validity": "Valid until December 31, 2018"
+      },
+      {
+        "product_image_url": "sundae",
+        "description": "Get your free sundae",
+        "sponsor_image_url": "McDo",
+        "validity": "Valid until December 31, 2018"
+      },
+      {
+        "product_image_url": "pizza2",
+        "description": "You earned a free pizza",
+        "sponsor_image_url": "PizzaHut",
+        "validity": "Valid until December 31, 2018"
+      }
+
+    ]
+}

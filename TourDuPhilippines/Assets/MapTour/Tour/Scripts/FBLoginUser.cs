@@ -82,6 +82,7 @@ namespace Facebook.Unity
                 }
                 PanelLogin.SetActive(false);
                 PanelMainContent.SetActive(true);
+                PlayerPrefs.SetInt("FBSuccess", 1);
             }
             else
             {

@@ -16,25 +16,18 @@
 	    };
 
         public Image icon;
-	    public Text  title;
-        public Text likeNum;
-	    //public Image background;
+
         public Button destinationBtn;
-        private List <string> tempPic = new List<string> ();
-        private List<string> tempImg = new List<string>();
+
         private bool isDone = false;
 
-        void Start()
-        {
-            PlayerPrefs.SetInt("IsDoneText", 0);
-            StartCoroutine(LoadPlaces());
-        }
+
 
         void LoadDestinationScene()
         {
             SceneManager.LoadScene("DestinationVideo");
         }
-        public IEnumerator LoadPlaces()
+        public IEnumerator LoadPlaces(int index)
         { //Request the API
 
             ParseJob job = new ParseJob();
@@ -45,37 +38,18 @@
 
             IDictionary response = (IDictionary)((IDictionary)job.OutData);
             IList results = (IList)response["results"];
-            foreach (IDictionary result in results)
-            {
-                IDictionary destination = ((IDictionary)result);
-                string imagePic = destination["image_url"].ToString();
-                string imageName = destination["destinationName"].ToString();
-                tempImg.Add(imageName);
-                tempPic.Add(imagePic);
-                Debug.Log("Image Count"+ tempImg.Count +"Results Count"+results.Count);
-                if(tempImg.Count == results.Count)
-                {
-                    isDone = true;
-                    PlayerPrefs.SetInt("IsDoneText", 1);
-                }
-
-
-             }
+            IDictionary destination = ((IDictionary)results[index]);
+            string imageName = destination["image_url"].ToString();
+            this.icon.sprite = Resources.Load<Sprite>(imageName);
+            Button loadDestinationBtn = this.destinationBtn.GetComponent<Button>();
+            loadDestinationBtn.onClick.AddListener(LoadDestinationScene);
 
         }
         
 
-        public void onUpdateItem( int index ) {
-
-            if (isDone )
-            {
-                this.title.text = tempImg[index];
-                this.icon.sprite = Resources.Load<Sprite>(tempPic[index]);
-                int numRandom = Random.Range(4, 50);
-                likeNum.text = numRandom.ToString();
-                Button loadDestinationBtn = this.destinationBtn.GetComponent<Button>();
-                loadDestinationBtn.onClick.AddListener(LoadDestinationScene);
-            }
+        public void onUpdateItem( int index ) 
+        {
+            StartCoroutine(LoadPlaces(index));
         }
     }
 }

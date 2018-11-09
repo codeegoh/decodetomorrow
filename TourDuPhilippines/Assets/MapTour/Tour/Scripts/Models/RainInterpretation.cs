@@ -33,7 +33,7 @@ namespace Digify
             else if (rain > 0.1)
                 interpretation = "Drizzle";
             else
-                interpretation = "No Rain";
+                interpretation = "Sunny";
 
             return interpretation;        
         }

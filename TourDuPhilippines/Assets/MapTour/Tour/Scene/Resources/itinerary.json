@@ -1,0 +1,17 @@
+{
+    "results": [
+      {
+        "image_url": "list_item_day1",
+        "destinationName": "El Nido, Palawan"
+      },
+      {
+        "image_url": "list_item_day2",
+        "destinationName": "Boracay Island, Aklan"
+      },
+      {
+        "image_url": "list_item_day3",
+        "destinationName": "Batanes Island, Batanes"
+      }
+
+    ]
+}

@@ -57,7 +57,7 @@ namespace DigiMap {
 
    					if (kindCondition && layerCondition) {
            
-                        Debug.Log(kind.layer + " " + feature.layer.layerType);
+                       // Debug.Log(kind.layer + " " + feature.layer.layerType);
 
 						if (Application.isPlaying)
 							StartCoroutine (SpawnPrefabsInMesh (feature, featureObject, kind));

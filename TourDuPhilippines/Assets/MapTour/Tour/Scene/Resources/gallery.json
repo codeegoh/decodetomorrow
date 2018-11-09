@@ -1,0 +1,28 @@
+{
+    "results": [
+      {
+        "icon1": "image1_small",
+        "icon2": "image2_small"
+      },
+      {
+        "icon1": "image3_small",
+        "icon2": "image4_small"
+      },
+      {
+        "icon1": "image5_small",
+        "icon2": "image6_small"
+      },
+      {
+        "icon1": "image1_small",
+        "icon2": "image2_small"
+      },
+      {
+        "icon1": "image3_small",
+        "icon2": "image4_small"
+      },
+      {
+        "icon1": "image5_small",
+        "icon2": "image6_small"
+      }
+    ]
+}

@@ -67,7 +67,7 @@ namespace DigiMap
 				//Deserialize the json response
 				IDictionary deserializedResponse = (IDictionary)Json.Deserialize (response);
 
-				Debug.Log(string.Format("[GO Places] Tile center: {0} - Request Url {1} - response {2}",tileCenter.toLatLongString(),url,response));
+				//Debug.Log(string.Format("[GO Places] Tile center: {0} - Request Url {1} - response {2}",tileCenter.toLatLongString(),url,response));
 
 				//That's our list of Places
 				IList results = (IList)deserializedResponse ["results"];

@@ -81,6 +81,8 @@
 	    private void Update()
 	    {
 
+            if (PlayerPrefs.GetInt("IsDoneGallery") == 1)
+                refresh();
             if (PlayerPrefs.GetInt("IsDoneText") == 1)
                 refresh();
 
@@ -108,7 +110,7 @@
             // [ Scroll up ]
 
 		    while( this.contentAnchoredPosition - this._prevAnchoredPosition  < -this._itemSize * 2 ) {
-
+                refresh();
                 this._prevAnchoredPosition -= this._itemSize;
 
                 // move a first item to last
@@ -129,7 +131,7 @@
             // [ Scroll down ]
 
             while ( this.contentAnchoredPosition - this._prevAnchoredPosition > 0 ) {
-
+                refresh();
                 this._prevAnchoredPosition += this._itemSize;
 
                 // move a last item to first
@@ -157,6 +159,7 @@
 
         public void refresh() {
             PlayerPrefs.SetInt("IsDoneText", 0);
+            PlayerPrefs.SetInt("IsDoneGallery", 0);
             var index = 0;
             if( this.contentAnchoredPosition != 0 ) {
                 index = (int)(-this.contentAnchoredPosition / this._itemSize);

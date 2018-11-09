@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Digify;
 using System;
+using UnityEngine.UI;
 using Digi.RainMaker;
 
 public class WeatherManager : MonoBehaviour
@@ -19,6 +20,9 @@ public class WeatherManager : MonoBehaviour
     public GameObject Sun;
     private int startSunAngle = -80;
     private float multiplier = 15.8F;
+
+    public Text choosenDate, temperatureText, radiationText,
+    cloudCoverText, rainText;
     void Start()
     {
 #if UNITY_EDITOR
@@ -39,9 +43,9 @@ public class WeatherManager : MonoBehaviour
         int sysHour = System.DateTime.Now.Hour;
         float sunAngle = startSunAngle - (13 * multiplier);
         Sun.transform.rotation = Quaternion.Euler(sunAngle, 0.0f, 0.0f);
-       // if (sysHour > 19)
-       //     Sun.transform.rotation = Quaternion.Euler(-90, 0.0f, 0.0f);
-       // else
+        if (sysHour > 19)
+            Sun.transform.rotation = Quaternion.Euler(-90, 0.0f, 0.0f);
+        else
             Sun.transform.rotation = Quaternion.Euler(sunAngle, 0.0f, 0.0f);
 
     }
@@ -95,7 +99,7 @@ public class WeatherManager : MonoBehaviour
         ParseJob job = new ParseJob();
         job.InData = www.text;
         job.Start();
-
+        Debug.Log("#####WEATHER Response" + www.text);
         yield return StartCoroutine(job.WaitFor());
 
         IDictionary response = (IDictionary)((IDictionary)job.OutData);
@@ -145,17 +149,16 @@ public class WeatherManager : MonoBehaviour
     {
         if (isWeatherAvailable)
         {
-            Location location = new Location(userLatitude, userLongitude, 0);
             List<Forecast> forecasts = GetForecast("location_name");
             if (null != forecasts && forecasts.Count > 0)
             {
-                foreach (Forecast forecast in forecasts)
-                {
-                    Debug.Log("@@@@@Rain Probability: "+forecast.RainProbability.ToString());
-                    Debug.Log("@@@@@Rain GAILE: " + forecast.Rain.ToString());
-                    RainScript.RainIntensity = (float)forecast.Rain/20;
-                }
-                isWeatherAvailable = false;
+                choosenDate.text = forecasts[0].Timestamp.ToString();
+                temperatureText.text = forecasts[0].Temperature.ToString();
+                radiationText.text = forecasts[0].SolarRadiation.ToString();
+                cloudCoverText.text = forecasts[0].TotalCloudCover.ToString();
+                RainScript.RainIntensity = (float)forecasts[0].Rain / 20;
+                string weatherInterpretationRain = WeatherInterpretationFactory.Interpret(forecasts[0], WeatherType.RAIN);
+                rainText.text = weatherInterpretationRain;
             }
         }
     }
