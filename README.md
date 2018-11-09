@@ -29,10 +29,10 @@ It's definitely more fun in the Philippines using TravelPinas mobile app.
 
 #### 2. Feeds Screen
 Shows 5 categories of feed contents: 
-- transportation options, booking promo, deals and discounts (such as: airlines, seaport, land travel)
+- transportation options, booking promo, deals and discounts (such as: airlines, seaport, land and railroad transport)
 - hotels and places to stay options, booking promo, deals and discounts
 - foods & restaurants	options, promo, deals and discounts
-- attractions options and packages, promo, deals and discounts
+- tourist attraction options and packages, promo, deals and discounts
 - family, relatives, and friends shared travel plans, travel invitations and travel experience
 
 <img src="readme_images/02-feeds.png"  width="250">
@@ -52,7 +52,7 @@ Contains minimal user info and an optional Union bank account info.
 
 #### 5. My Gifts Screen
 
-Displays the list of gifts collected by the during his/her travel.
+Displays the list of gifts collected by the user during his/her travel.
 
 <img src="readme_images/05-gifts.png"  width="250">
 
@@ -62,7 +62,7 @@ On top shows the 360 degree video of the attraction or festival so that the user
 - information about the selected tourist attraction or festival  and events
 - deals and promotions
 - statistics, ratings and recommendation from other visitors who have been in the place
-- weather info about this attraction or festival
+- weather forecast info about this attraction
 
 <img src="readme_images/06-attraction_about.png"  width="250">
 
@@ -118,7 +118,7 @@ Now, when you already started your travel and arrived at the target place or att
 
 #### 17. Travel Map Screen
 
-While enjoying your tour, you can also start your gamified location-based hunting of points and gifts.
+While enjoying your tour, you can also start your gamified location-based hunting for points and gifts.
 
 <img src="readme_images/17-travel_map.png"  width="300">
 
