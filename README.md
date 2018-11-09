@@ -13,7 +13,7 @@ The Augmented Reality (AR) and Virtual Environments (VE) immersive experience po
 
 The customizable suggested itinerary easily records your adventure plan such as booking options to airport, seaport, road and railways transportations; hotels; restaurants; and fun things to do.
 
-The gamified location-based marketing tool built-in the app, such as getting 'Rainy Season' and 'Hot Summer' deals, discounts and promos; and earning points and gifts together with your families and friends will really make your travel experience in the Philippines more fun and exciting.
+The gamified location-based marketing tool built-in the app, such as getting 'Rainy Season' and 'Hot Summer' deals, discounts and promos; and earning points and gifts together with your families and friends will really make your travel experience in the Philippines more fun, engaging and exciting.
 
 Make travel blogging and/or vlogging a pleasure. Again, you can earn points and gifts when you share your travel plans and experiences to the communities and social media.
 
