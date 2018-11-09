@@ -20,5 +20,5 @@ It's definitely more fun in the Philippines using TravelPinas mobile app.
 
 **Screenshots:**
 
-<image source="readme_images/00-intro.png" width="200">
+<img source="readme_images/00-intro.png" width="200" />
 
